@@ -3,13 +3,13 @@ services:
     worker:
         build:
             context: ./docker/worker/
-            dockerfile: ./docker/worker/dockerfile
+            dockerfile: dockerfile
         volumes:
             - .:/app
     
     flower:
         build:
             context: ./docker/flower/
-            dockerfile: ./docker/flower/dockerfile
+            dockerfile: dockerfile
         ports:
             - "5555:5555"
