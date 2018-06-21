@@ -3,5 +3,8 @@ RUN mkdir /app
 ADD ./docker/flower/requirements.txt /app/requirements.txt
 WORKDIR /app/
 RUN pip install -r requirements.txt
-ENTRYPOINT celery flower --broker=amqp://cbim_admin:rabbitmq_VA1916w%23@172.168.1.201:5672/celery-debug --basic_auth=admin:admin
+ENV BROKER=""
+ENV USERNAME=""
+ENV PASSWORD=""
+ENTRYPOINT celery flower --broker=${BROKER} --basic_auth=${USERNAME}:${PASSWORD}}
 #ENTRYPOINT ['celery','-A','test_celery', 'worker', '--loglevel=info']
