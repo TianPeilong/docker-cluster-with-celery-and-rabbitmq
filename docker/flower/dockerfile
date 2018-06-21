@@ -3,5 +3,5 @@ RUN mkdir /app
 ADD requirements.txt /app/requirements.txt
 WORKDIR /app/
 RUN pip install -r requirements.txt
-ENTRYPOINT celery flower --broker=amqp://username:password@172.168.1.201:5672/celery-debug --basic_auth=admin:admin
+ENTRYPOINT celery flower --broker=amqp://cbim_admin:rabbitmq_VA1916w%23@172.168.1.201:5672/celery-debug --basic_auth=admin:admin
 #ENTRYPOINT ['celery','-A','test_celery', 'worker', '--loglevel=info']
