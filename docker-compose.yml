@@ -14,7 +14,7 @@ services:
         ports:
             - "5555:5555"
         environment:
-            - BROKER: 'amqp://cbim_admin:rabbitmq_VA1916w%23@172.168.1.201:5672/celery-debug'
-            - USERNAME: admin
-            - PASSWORD: admin
+            BROKER: 'amqp://cbim_admin:rabbitmq_VA1916w%23@172.168.1.201:5672/celery-debug'
+            USERNAME: admin
+            PASSWORD: admin
 
