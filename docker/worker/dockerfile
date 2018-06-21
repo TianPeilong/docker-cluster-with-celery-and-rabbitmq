@@ -1,6 +1,7 @@
 FROM python:2.7
 ADD ./docker/worker/requirements.txt /app/requirements.txt
 ADD ./test_celery/ /app/
+RUN mkdir /app/_runtime/celery
 WORKDIR /app/
 RUN pip install -r requirements.txt
 ENTRYPOINT celery -A test_celery worker --loglevel=info
