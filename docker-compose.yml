@@ -6,6 +6,9 @@ services:
             dockerfile: ./docker/worker/dockerfile
         volumes:
             - .:/app
+        environment:
+            CELERY_BROKER: 'redis://redis_db:6379/0'
+            CELERY_BACKEND: 'redis://redis_db:6379/0'
         depends_on:
             - redis_db
         command: '-A test_celery worker --loglevel=info'
