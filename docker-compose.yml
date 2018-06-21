@@ -7,7 +7,7 @@ services:
         volumes:
             - .:/app
         depends_on:
-            - redis
+            - redis_db
     
     flower:
         build:
@@ -20,7 +20,7 @@ services:
             USERNAME: admin
             PASSWORD: admin
         depends_on:
-            - redis
+            - redis_db
     
     redis_db:
         image: redis
