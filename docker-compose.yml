@@ -6,6 +6,8 @@ services:
             dockerfile: ./docker/worker/dockerfile
         volumes:
             - .:/app
+        depends_on:
+            - redis
     
     flower:
         build:
@@ -14,7 +16,13 @@ services:
         ports:
             - "5555:5555"
         environment:
-            BROKER: 'amqp://cbim_admin:rabbitmq_VA1916w%23@172.168.1.201:5672/celery-debug'
+            BROKER: 'redis://redis_db:6379/0'
             USERNAME: admin
             PASSWORD: admin
-
+        depends_on:
+            - redis
+    
+    redis_db:
+        image: redis
+        ports:
+            - "6379:6379"
