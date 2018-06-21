@@ -2,14 +2,14 @@ version: '2'
 services:
     worker:
         build:
-            context: ./docker/worker/
-            dockerfile: dockerfile
+            context: .
+            dockerfile: ./docker/worker/dockerfile
         volumes:
             - .:/app
     
     flower:
         build:
-            context: ./docker/flower/
-            dockerfile: dockerfile
+            context: .
+            dockerfile: ./docker/flower/dockerfile
         ports:
             - "5555:5555"
