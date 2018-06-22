@@ -23,6 +23,7 @@ services:
             BROKER: 'redis://redis_db:6379/0'
             USERNAME: admin
             PASSWORD: admin
+            PRJNAME: test_celery
         depends_on:
             - redis_db
     
