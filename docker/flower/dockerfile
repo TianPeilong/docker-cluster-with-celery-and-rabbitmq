@@ -7,5 +7,5 @@ ENV BROKER=""
 ENV USERNAME=""
 ENV PASSWORD=""
 ENV PRJNAME=""
-ENTRYPOINT celery flower -A ${PRJNAME}} --broker=${BROKER} --basic_auth=${USERNAME}:${PASSWORD}
+ENTRYPOINT celery flower -A ${PRJNAME} --broker=${BROKER} --basic_auth=${USERNAME}:${PASSWORD}
 #ENTRYPOINT ['celery','-A','test_celery', 'worker', '--loglevel=info']

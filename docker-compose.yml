@@ -17,8 +17,6 @@ services:
         build:
             context: .
             dockerfile: ./docker/flower/dockerfile
-        volumes:
-            - .:/app
         ports:
             - "5555:5555"
         environment:
@@ -28,6 +26,7 @@ services:
             PRJNAME: test_celery
         depends_on:
             - redis_db
+            - worker
     
     redis_db:
         image: redis
